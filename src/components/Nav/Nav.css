@@ -1,25 +1,24 @@
 nav {
     width: 100%;
-    font-size: 3rem;
+    font-size: 15px;
     color: #fff;
-    margin-bottom: 50px;
-    background-color: rgb(56, 56, 56);
+    margin-bottom: 30px;
+    background-color: #383838;
     height: auto;
-    font-family: 'Bungee', cursive;
   }
   
   a {
-    color: #fed420;
+    color: white;
   }
   
   a:hover {
-    color: #fed420;
+    color: gray;
     text-decoration: none;
   }
   
   nav li {
     display: inline-block;
-    padding: 26px 0;
+    padding: 30px 0;
     width: 25%;
     /* text-align: center; */
   }
@@ -34,8 +33,3 @@ nav {
     margin: 0px 0px 0px 40px;
   }
   
-  @media only screen and (max-width: 750px) {
-    #cur-sco, #top-sco {
-      font-size: 2rem;
-    }
-  }
