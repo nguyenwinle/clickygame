@@ -25,10 +25,17 @@ class App extends Component {
     clicked: [],
   };
 
+  handleShuffle = () => {
+    let shuffledFriends = shuffle(friends);
+    this.setState({ friends: shuffledFriends });
+  };
+
   handleClick = id => {
     if (this.state.clicked.indexOf(id) === -1) {
       this.handleIncrement();
-      this.setState({ clicked: this.state.clicked.concat(id) });
+      this.setState({ 
+        clicked: this.state.clicked.concat(id) 
+      });
     } else {
       this.handleReset();
     }
@@ -42,10 +49,14 @@ class App extends Component {
       lose: ""
     });
     if (newScore >= this.state.topScore) {
-      this.setState({ topScore: newScore });
+      this.setState({ 
+        topScore: newScore 
+      });
     }
     else if (newScore === 12) {
-      this.setState({ win: "You win!" });
+      this.setState({ 
+        win: "You win!" 
+      });
     }
     this.handleShuffle();
   };
@@ -60,11 +71,6 @@ class App extends Component {
     this.handleShuffle();
   };
 
-  handleShuffle = () => {
-    let shuffledFriends = shuffle(friends);
-    this.setState({ friends: shuffledFriends });
-  };
-
   render() {
     return (
       <Wrapper>
@@ -76,9 +82,6 @@ class App extends Component {
           lose={this.state.lose}
         />
 
-        <br/>
-        <br/>
-
         <Title>
           Click on each picture only once!
         </Title>
@@ -87,10 +90,10 @@ class App extends Component {
               
                 <FriendCard
                   key={friend.id}
+                  handleShuffle={this.handleShuffle}
                   handleClick={this.handleClick}
                   handleIncrement={this.handleIncrement}
                   handleReset={this.handleReset}
-                  handleShuffle={this.handleShuffle}
                   id={friend.id}
                   image={friend.image}
                 />
